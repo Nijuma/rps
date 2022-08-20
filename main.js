@@ -4,6 +4,9 @@ let paper = document.querySelector('.paper');
 let scissors = document.querySelector('.scissors');
 let rock = document.querySelector('.rock');
 
+var img = document.createElement('img');
+img.src = 'imgs/noun-scissors-477919.png';
+
 var choices = ['rock', 'paper', 'scissors'];
 let userChoice = '';
 
@@ -69,6 +72,8 @@ document.querySelector('.paper').onclick = () => {
 
 document.querySelector('.scissors').onclick = () => {
   userChoice = 'scissors';
+  document.querySelector('.scissors').innerHTML = img;
+
   //after user choice, we randomize PC choice
   cpuRPS(cpuRoll);
   //check who wins
