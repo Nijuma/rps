@@ -4,22 +4,15 @@ let paper = document.querySelector('.paper');
 let scissors = document.querySelector('.scissors');
 let rock = document.querySelector('.rock');
 
-const roll = Math.trunc(Math.random() * 3) + 1;
+var choices = ['rock', 'paper', 'scissors'];
+let userChoice = '';
 
-const rps = roll => {
-  if (roll === 1) {
-    return 'rock';
-  } else if (roll === 2) {
-    return 'paper';
-  } else {
-    return 'scissors';
-  }
-};
+const cpuRoll = Math.trunc(Math.random() * 3) + 1;
 
-const cpuRPS = roll => {
-  if (roll === 1) {
+const cpuRPS = cpuRoll => {
+  if (cpuRoll === 1) {
     return 'rock';
-  } else if (roll === 2) {
+  } else if (cpuRoll === 2) {
     return 'paper';
   } else {
     return 'scissors';
@@ -40,21 +33,44 @@ document.querySelector('#play--game').addEventListener('click', function () {
   show();
 });
 
-const logic = () => {
-  playerChoice = 0;
-  rock = 1;
-  paper = 2;
-  scissors = 3;
-  const roll = Math.trunc(Math.random() * 3) + 1;
-  if (rps(roll) === cpuRPS(roll)) {
+function logic(userChoice) {
+  const cpuRoll = Math.trunc(Math.random() * 3) + 1;
+
+  console.log(userChoice);
+  console.log(cpuRPS(cpuRoll));
+
+  if (userChoice === cpuRPS(cpuRoll)) {
     console.log('tie');
-  } else if (rps(roll) === 1 && cpuRPS(roll) === 3) {
+  } else if (userChoice === 'rock' && cpuRPS(cpuRoll) === 'scissors') {
+    console.log('win');
+  } else if (userChoice === 'scissors' && cpuRPS(cpuRoll) === 'paper') {
+    console.log('win');
+  } else if (userChoice === 'paper' && cpuRPS(cpuRoll) === 'rock') {
     console.log('win');
   } else {
     console.log('lose');
   }
+}
+document.querySelector('.rock').onclick = () => {
+  userChoice = 'rock';
+  //after user choice, we randomize PC choice
+  cpuRPS(cpuRoll);
+  //check who wins
+  logic(userChoice, cpuRPS(cpuRoll));
 };
 
-document.querySelector('.rock').addEventListener('click', logic);
+document.querySelector('.paper').onclick = () => {
+  userChoice = 'paper';
+  //after user choice, we randomize PC choice
+  cpuRPS(cpuRoll);
+  //check who wins
+  logic(userChoice, cpuRPS(cpuRoll));
+};
 
-console.log(rps(roll));
+document.querySelector('.scissors').onclick = () => {
+  userChoice = 'scissors';
+  //after user choice, we randomize PC choice
+  cpuRPS(cpuRoll);
+  //check who wins
+  logic(userChoice, cpuRPS(cpuRoll));
+};
