@@ -12,8 +12,6 @@ body {
   height: 100vh;
 }
 
-
-
 #play--game {
   position: absolute;
   left: 50%;
@@ -109,20 +107,90 @@ body {
   scale: 50%;
 }
 
+.images {
+  /* border: solid red 1px; */
+  position: relative;
+  bottom: 15%;
+}
+
+.move {
+  /* border: solid black 3px; */
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.score--1 {
+  position: absolute;
+  bottom: 80%;
+  left: 55%;
+  font-size: 4rem;
+  font-family: pixel;
+}
+.score--2 {
+  position: absolute;
+  bottom: 80%;
+  left: 35%;
+  font-size: 4rem;
+  font-family: pixel;
+}
+.tie {
+  position: absolute;
+  bottom: 80%;
+  left: 30%;
+  font-size: 4rem;
+  font-family: pixel;
+}
 .hidden {
   display: none;
 }
-.images {
-    /* border: solid red 1px; */
-    position: relative;
-    bottom: 15%;
-  }
 
-.move {
-    /* border: solid black 3px; */
-    height: 100vh;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.overlay {
+  position: absolute;
+  left: 25%;
+  bottom: 0.5%;
+  border: solid;
+  height: 200px;
+  width: 200px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: skyblue;
+  border-radius: 10px;
+}
+.overlay.active {
+  display: flex;
+}
+.replay {
+  position: absolute;
+  left: 20%;
+  transform: translateX(-50%);
+  color: #444;
+  background: none;
+  border: none;
+  font-family: pixel;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  scale: 50%;
+}
+
+.win {
+  color: red;
+  position: relative;
+
+  bottom: 20%;
+  font-family: pixel;
 }
