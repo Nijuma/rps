@@ -8,7 +8,6 @@ let score2 = document.querySelector('.score--2');
 let tie = document.querySelector('.tie');
 let overlay = document.querySelector('.overlay');
 
-var choices = ['rock', 'paper', 'scissors'];
 let userChoice = '';
 
 let userScore = 0;
@@ -87,35 +86,32 @@ function logic(userChoice) {
   }
 }
 
-document.querySelector('.rock').onclick = () => {
-  userChoice = 'rock';
-  //after user choice, we randomize PC choice
-  cpuRPS(cpuRoll);
-  //check who wins
-  logic(userChoice, cpuRPS(cpuRoll));
-};
+// document.querySelector('#start').onclick(userChoice) = () => {
+//   const choices = ['rock', 'paper', 'scissors'];
+//   userChoice = choices
+//   //after user choice, we randomize PC choice
+//   cpuRPS(cpuRoll);
+//   //check who wins
+//   logic(userChoice, cpuRPS(cpuRoll));
+// };
 
-document.querySelector('.paper').onclick = () => {
-  userChoice = 'paper';
+document.querySelector('#start').addEventListener('click', function () {
+  const choices = ['rock', 'paper', 'scissors'];
+  userChoice = choices;
   //after user choice, we randomize PC choice
   cpuRPS(cpuRoll);
   //check who wins
   logic(userChoice, cpuRPS(cpuRoll));
-};
-
-document.querySelector('.scissors').onclick = () => {
-  userChoice = 'scissors';
-  //after user choice, we randomize PC choice
-  cpuRPS(cpuRoll);
-  //check who wins
-  logic(userChoice, cpuRPS(cpuRoll));
-};
+});
 
 const overlayModal = () => {
   overlay.classList.add('active');
 };
 const gameOver = () => {
-  return userScore === 5 || cpuScore === 5;
+  if (userScore === 5 || cpuScore === 5) {
+    overlayModal();
+    playing = false;
+  }
 };
 
 const restart = () => {
@@ -123,4 +119,4 @@ const restart = () => {
   userScore = 0;
   cpuScore = 0;
 };
-gameOver(overlayModal);
+gameOver();

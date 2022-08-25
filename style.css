@@ -9,7 +9,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100vh
 }
 
 #play--game {
@@ -36,8 +36,7 @@ body {
 }
 
 .rock {
-  position: absolute;
-  left: 39%;
+  
   transform: translateX(-50%);
   color: #444;
   background: none;
@@ -60,8 +59,7 @@ body {
 }
 
 .paper {
-  position: absolute;
-  left: 11%;
+ 
   transform: translateX(-50%);
   color: #444;
   background: none;
@@ -84,8 +82,7 @@ body {
 }
 
 .scissors {
-  position: absolute;
-  left: 62%;
+ 
   transform: translateX(-50%);
   color: #444;
   background: none;
@@ -108,14 +105,36 @@ body {
 }
 
 .images {
-  /* border: solid red 1px; */
-  position: relative;
-  bottom: 15%;
+  border: solid red 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: max-content;
+  width: max-content;
 }
+.img--box {
+  border: solid red 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: max-content;
+  position:absolute;
+  bottom: 100%;
+
+  
+}
+/* .start{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+} */
 
 .move {
   /* border: solid black 3px; */
-  height: 100vh;
+  /* height: 100vh; */
   width: auto;
   display: flex;
   justify-content: center;
